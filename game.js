@@ -71,7 +71,7 @@ class GameCat {
   }
 
   randomHeight() {
-    return `${Math.random() * (70 - 40) + 30}px`;
+    return `${Math.floor(Math.random() * (60 - 30 + 1) + 30)}px`;
   }
 
   endGame(obstacle) {
@@ -107,7 +107,7 @@ class GameCat {
   }
   gameOverModal() {
     this.createModal("Ви програли!", "Спробувати знову", () =>
-      this.restartGame()
+      this.restartGame(),
     );
   }
 
