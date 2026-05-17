@@ -61,13 +61,15 @@ class GameCat {
     this.gameArea.appendChild(obstacle);
 
     const animationHandler = () => {
-      obstacle.removeEventListener("animationiteration", animationHandler);
-      this.gameArea.removeChild(obstacle);
+      obstacle.removeEventListener("animationend", animationHandler);
+      obstacle.remove();
+
       if (!this.gameOver) {
         this.renderObstacles();
       }
     };
-    obstacle.addEventListener("animationiteration", animationHandler);
+
+    obstacle.addEventListener("animationend", animationHandler);
   }
 
   randomHeight() {
